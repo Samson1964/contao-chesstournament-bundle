@@ -55,3 +55,6 @@ $GLOBALS['TL_LANG']['tl_chesstournament_results']['pgn'][1] = 'Partie im PGN-For
 $GLOBALS['TL_LANG']['tl_chesstournament_results']['more_legend'] = 'Weitere Einstellungen';
 $GLOBALS['TL_LANG']['tl_chesstournament_results']['comment'][0] = 'Kommentar';
 $GLOBALS['TL_LANG']['tl_chesstournament_results']['comment'][1] = 'Öffentlicher Kommentar, HTML-Tags sind erlaubt';
+
+$GLOBALS['TL_LANG']['tl_chesstournament_results']['publish_legend'] = 'Veröffentlichung';
+$GLOBALS['TL_LANG']['tl_chesstournament_results']['published'] = array('Veröffentlicht', 'Ergebnis veröffentlichen');

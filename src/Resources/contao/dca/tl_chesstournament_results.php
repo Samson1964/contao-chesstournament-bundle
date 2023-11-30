@@ -97,8 +97,16 @@ $GLOBALS['TL_DCA']['tl_chesstournament_results'] = array
 			'toggle' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['tl_chesstournament_results']['toggle'],
-				'icon'                => 'visible.gif',
-				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
+				'attributes'           => 'onclick="Backend.getScrollOffset()"',
+				'haste_ajax_operation' => array
+				(
+					'field'            => 'published',
+					'options'          => array
+					(
+						array('value' => '', 'icon' => 'invisible.svg'),
+						array('value' => '1', 'icon' => 'visible.svg'),
+					),
+				),
 			),
 			'show' => array
 			(
@@ -112,7 +120,7 @@ $GLOBALS['TL_DCA']['tl_chesstournament_results'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'default'                     => '{title_legend},round,board,date,time,white,black;{result_legend},result;{pgn_legend},pgn;{more_legend},comment'
+		'default'                     => '{title_legend},round,board,date,time,white,black;{result_legend},result;{pgn_legend},pgn;{more_legend},comment;{publish_legend:hide},published'
 	),
 
 	// Fields
@@ -238,6 +246,17 @@ $GLOBALS['TL_DCA']['tl_chesstournament_results'] = array
 			'explanation'             => 'insertTags',
 			'sql'                     => "mediumtext NULL"
 		), 
+		'published' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_chesstournament_results']['published'],
+			'exclude'                 => true,
+			'search'                  => false,
+			'sorting'                 => false,
+			'filter'                  => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class' => 'w50','isBoolean' => true),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),  
 	)
 );
 

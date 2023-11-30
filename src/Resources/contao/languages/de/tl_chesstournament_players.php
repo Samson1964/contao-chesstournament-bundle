@@ -50,3 +50,6 @@ $GLOBALS['TL_LANG']['tl_chesstournament_players']['ftitel_list']['WGM'] = 'WGM -
 $GLOBALS['TL_LANG']['tl_chesstournament_players']['more_legend'] = 'Weitere Einstellungen';
 $GLOBALS['TL_LANG']['tl_chesstournament_players']['singleSRC'][0] = 'Bild';
 $GLOBALS['TL_LANG']['tl_chesstournament_players']['singleSRC'][1] = 'Spielerbild hinzufügen';
+
+$GLOBALS['TL_LANG']['tl_chesstournament_results']['publish_legend'] = 'Veröffentlichung';
+$GLOBALS['TL_LANG']['tl_chesstournament_results']['published'] = array('Veröffentlicht', 'Spieler veröffentlichen');

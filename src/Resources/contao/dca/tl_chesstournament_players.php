@@ -97,8 +97,16 @@ $GLOBALS['TL_DCA']['tl_chesstournament_players'] = array
 			'toggle' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['tl_chesstournament_players']['toggle'],
-				'icon'                => 'visible.gif',
-				'attributes'          => 'onclick="Backend.getScrollOffset();return AjaxRequest.toggleVisibility(this,%s)"',
+				'attributes'           => 'onclick="Backend.getScrollOffset()"',
+				'haste_ajax_operation' => array
+				(
+					'field'            => 'published',
+					'options'          => array
+					(
+						array('value' => '', 'icon' => 'invisible.svg'),
+						array('value' => '1', 'icon' => 'visible.svg'),
+					),
+				),
 			),
 			'show' => array
 			(
@@ -112,7 +120,7 @@ $GLOBALS['TL_DCA']['tl_chesstournament_players'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'default'                     => '{name_legend},surname,prename,title,country;{club_legend},club;{rating_legend},nwz,elo,ftitel;{more_legend},singleSRC'
+		'default'                     => '{name_legend},surname,prename,title,country;{club_legend},club;{rating_legend},nwz,elo,ftitel;{more_legend},singleSRC;{publish_legend:hide},published'
 	),
 
 	// Fields
@@ -224,6 +232,17 @@ $GLOBALS['TL_DCA']['tl_chesstournament_players'] = array
 			'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr'),
 			'sql'                     => "binary(16) NULL",
 		), 
+		'published' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_chesstournament_players']['published'],
+			'exclude'                 => true,
+			'search'                  => false,
+			'sorting'                 => false,
+			'filter'                  => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class' => 'w50','isBoolean' => true),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),  
 	)
 );
 
